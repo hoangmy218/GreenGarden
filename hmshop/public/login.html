@@ -1,0 +1,51 @@
+
+<div class="d-flex justify-content-between">
+    <h4>Login</h4>
+  </div>
+  
+  <div style="overflow: auto; height: 450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  
+        
+        <div class="mt-4 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+            </div>
+            <input required minlength="2" type="email"
+            class="form-control"
+            name="email"
+            #email="ngModel"
+            [(ngModel)]="service.formData.email">
+        </div>
+  
+        <div class="text-left text-danger"
+        *ngIf="email.invalid && email.touched">
+        Please enter email.
+        </div>
+        
+  
+        <div class="mt-4 input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text">Password</span>
+          </div>
+          <input required minlength="2" type="password"
+          class="form-control"
+          name="password"
+          #password="ngModel"
+          [(ngModel)]="service.formData.password">
+      </div>
+      
+  
+        <div class="text-left text-danger"
+        *ngIf="password.invalid && password.touched">
+        Please enter password.
+        </div>
+        <div class="mt-4 input-group">
+  
+        <button class="mt-4 justify-content-between" mat-raised-button 
+        color="primary" type="submit"
+        [disabled]="form.invalid">Login</button>
+    </div>
+  
+    </form>
+  </div>
